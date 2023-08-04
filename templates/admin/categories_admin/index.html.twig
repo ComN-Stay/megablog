@@ -1,0 +1,40 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %}Catégories{% endblock %}
+
+{% block body %}
+    <h1>Catégories</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Titre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>
+                    {% if category.logo != '' %}
+                        <img src="{{ category.logo }}" height="50px" width="auto" />
+                    {% endif %}
+                    </td>
+                <td>{{ category.name }}</td>
+                <td>
+                    <a href="{{ path('app_categories_admin_show', {'id': category.id}) }}"><i class="fa-solid fa-eye fa-lg"></i></a>
+                    <a href="{{ path('app_categories_admin_edit', {'id': category.id}) }}"><i class="fa-solid fa-pen-to-square fa-lg ml-3"></i></a>
+                    <a href="{{ path('app_articles_admin_index', {'idCategorie': category.id}) }}">Articles</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun résultat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categories_admin_new') }}" class="btn btn-success btn-lg">Nouvelle catégorie</a>
+{% endblock %}

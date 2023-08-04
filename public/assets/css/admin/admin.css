@@ -1,0 +1,85 @@
+/* general */
+
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #858796;
+    text-align: left;
+    background-color: #fff;
+}
+
+/* admin login */
+.bg-gradient-primary {
+    background-color: #4e73df;
+    background-size: cover;
+}
+
+.card-boby {
+    padding: 1.25rem 0 !important;
+}
+
+.bg-login-image {
+    background: url(/assets/img/logo.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+form.user .form-control-user {
+    font-size: .8rem;
+    border-radius: 10rem;
+    padding: 1.5rem 1rem;
+}
+
+.modal-header .close {
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+
+label.required:after {
+    content: "* ";
+    color: #ff0000;
+}
+
+/************ fontawesome ***************/
+.fa-trash-can {
+    color: #ff0000;
+}
+/*********** tables ***********/
+
+.action_cell {
+    width: 9vw;
+    align-items: center;
+}
+
+.form_list {
+    float: left;
+    display: block;
+}
+
+.neg-1 {
+    margin-top: -.66vh;
+}
+
+/********** colors *********/
+.text-red {
+    color: #ff0000;
+}

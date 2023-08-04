@@ -1,0 +1,14 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %}Edition catégorie{% endblock %}
+
+{% block body %}
+    <h1>Edition catégorie</h1>
+
+    {{ include('admin/categories_admin/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+<div class="d-flex mt-3">
+    <a href="{{ path('app_categories_admin_index') }}" class="btn btn-info mr-3"><i class="fa-solid fa-chevron-left fa-sm mr-3"></i>Retour</a>
+
+    {{ include('admin/categories_admin/_delete_form.html.twig') }}
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+    <h1>Articles</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th></th>
+                <td>
+                    {% if article.logo != '' %}
+                        <img src="{{ article.logo }}" height="150px" width="auto" />
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article.title }}</td>
+            </tr>
+            <tr>
+                <th>Résumé</th>
+                <td>{{ article.shortDescription }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ article.description }}</td>
+            </tr>
+            <tr>
+                <th>Date de rédaction</th>
+                <td>{{ article.dateAdd ? article.dateAdd|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ article.status ? 'En ligne' : 'En attente de publication' }}</td>
+            </tr>
+        </tbody>
+    </table>
+<div class="d-flex">
+    <a href="{{ path('app_articles_admin_index', {'id': category.id}) }}" class="btn btn-info mr-3">Retour </a>
+
+    <a href="{{ path('app_articles_admin_edit', {'id': article.id}) }}" class="btn btn-info mr-3">Editer<i class="fa-solid fa-pen-to-square fa-lg ml-3"></i></a>
+
+    {{ include('admin/articles_admin/_delete_form.html.twig') }}
+</div>
+{% endblock %}

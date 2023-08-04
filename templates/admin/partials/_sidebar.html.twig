@@ -1,0 +1,60 @@
+<!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fa-solid fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Mega Blog</div>
+            </a>
+
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_dashboard') }}">
+                    <i class="fa-solid fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                <i class="fa-solid fa-users"></i> Utilisateurs
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_team_admin_index') }}"><span>Administrateurs</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_user_admin_index') }}"><span>Utilisateurs</span></a>
+            </li>
+
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <div class="sidebar-heading">
+                <i class="fa-solid fa-users"></i> Contenu
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_categories_admin_index') }}"><span>Catégories</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_comments_admin_index') }}"><span>Commentaires</span></a>
+            </li>
+
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_team_admin_edit', {'id': app.user.id })}}"><span>Mon profil</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_logout') }}"><span>Déconnexion</span></a>
+            </li>
+
+            <li class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </li>
+
+        </ul>
+    <!-- End of Sidebar -->

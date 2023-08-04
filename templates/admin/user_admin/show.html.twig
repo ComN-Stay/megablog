@@ -1,0 +1,48 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %}Fiche utilisateur{% endblock %}
+
+{% block body %}
+    <h1>Fiche utilisateur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ user.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ user.address }}</td>
+            </tr>
+            <tr>
+                <th>Complément d'adresse</th>
+                <td>{{ user.additionalAddress }}</td>
+            </tr>
+            <tr>
+                <th>Code postal</th>
+                <td>{{ user.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ user.town }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<div class="d-flex">
+    <a href="{{ path('app_user_admin_index') }}" class="btn btn-info mr-3"><i class="fa-solid fa-chevron-left fa-sm mr-3"></i>Retour</a>
+
+    <a href="{{ path('app_user_admin_edit', {'id': user.id}) }}" class="btn btn-info mr-3">Editer<i class="fa-solid fa-pen-to-square fa-lg ml-3"></i></a>
+
+    {{ include('admin/user_admin/_delete_form.html.twig') }}
+</div>
+{% endblock %}

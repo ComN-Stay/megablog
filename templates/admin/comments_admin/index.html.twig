@@ -1,0 +1,33 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %}Comments index{% endblock %}
+
+{% block body %}
+    <h1>Comments index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Text</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>
+                    {{ comment.text }}
+                    <div class="d-flex mt-2">
+                        <a href="{{ path('app_comments_admin_edit', {'id': comment.id }) }}" class="btn btn-success mr-2">Valider le commentaire</a>
+                        <a href="{{ path('app_comments_admin_delete', {'id': comment.id }) }}" class="btn btn-danger" onclick="return confirm('Supprimer cette donnée ?');">Supprimer le commentaire</a>
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>Aucun résultat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

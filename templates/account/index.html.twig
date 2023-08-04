@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountController!{% endblock %}
+
+{% block body %}
+<table class="table">
+        <thead>
+            <tr>
+                <th>Statut</th>
+                <th>Contenu</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-{{ comment.status ? 'success' : 'danger' }}">{{ comment.status ? 'Validé' : 'En attente de validation' }}</button>
+                </td>
+                <td>
+                    {{ comment.text }}
+                </td>
+                <td>
+                    <form method="post" action="{{ path('app_comments_delete', {'id': comment.id}) }}" onsubmit="return confirm('Supprimer ce commentaire ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.id) }}">
+                        <button class="btn btn-danger">Supprimer le commentaire<i class="fa-solid fa-trash-alt fa-lg ml-3"></i></a>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>Aucun résultat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

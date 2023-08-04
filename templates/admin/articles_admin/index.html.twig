@@ -1,0 +1,41 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+    <h1>Articles</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>
+                    {% if article.logo != '' %}
+                        <img src="{{ article.logo }}" height="50px" width="auto" />
+                    {% endif %}    
+                </td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.status ? 'En ligne' : 'En attente de publication' }}</td>
+                <td>
+                    <a href="{{ path('app_articles_admin_show', {'id': article.id}) }}"><i class="fa-solid fa-eye fa-lg"></i></a>
+                    <a href="{{ path('app_articles_admin_edit', {'id': article.id}) }}"><i class="fa-solid fa-pen-to-square fa-lg ml-3"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun résultat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_articles_admin_new') }}" class="btn btn-success btn-lg">Nouvelle catégorie</a>
+{% endblock %}
